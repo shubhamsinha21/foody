@@ -8,7 +8,6 @@ const Stack = createNativeStackNavigator();
 export default function MyStack() {
     return (
         <NavigationContainer>
-            <StatusBar backgroundColor="black" />
             <Stack.Navigator initialRouteName="Welcome" screenOptions={{ headerShown: false }}>
                 <Stack.Screen name="Welcome" component={Welcome} />
                 <Stack.Screen name="Home" component={Home} />
