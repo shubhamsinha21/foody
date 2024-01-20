@@ -1,12 +1,18 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+import { Home, Welcome } from "../screens";
+import { StatusBar } from "react-native";
 
 const Stack = createNativeStackNavigator();
 
-const MyStack = () => {
+export default function MyStack() {
     return (
-        <Stack.Navigator>
-            <Stack.Screen name="Home" component={HomeScreen} />
-            <Stack.Screen name="Home" component={HomeScreen} />
-        </Stack.Navigator>
+        <NavigationContainer>
+            <StatusBar backgroundColor="black" />
+            <Stack.Navigator initialRouteName="Welcome" screenOptions={{ headerShown: false }}>
+                <Stack.Screen name="Welcome" component={Welcome} />
+                <Stack.Screen name="Home" component={Home} />
+            </Stack.Navigator>
+        </NavigationContainer>
     )
 }
