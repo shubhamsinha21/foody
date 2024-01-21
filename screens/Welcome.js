@@ -1,27 +1,47 @@
+import { useEffect } from 'react';
 import { View, Text, Image, StatusBar } from 'react-native'
-// import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-// import Animated, { } from 'react-native-reanimated';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import Animated, { useSharedValue, withSpring } from 'react-native-reanimated';
 
-export default function Welcome() {
+
+export default function Welcome({ navigation }) {
+
+    const ring1padding = useSharedValue(0);
+    const ring2padding = useSharedValue(0);
+
+    useEffect(() => {
+        requestAnimationFrame(() => {
+            ring1padding.value = 0;
+            ring2padding.value = 0;
+            setTimeout(() => ring1padding.value = withSpring(ring1padding.value + wp(12)), 100);
+            setTimeout(() => ring2padding.value = withSpring(ring2padding.value + wp(10)), 300);
+
+            setTimeout(() => navigation.navigate("Home"), 2500)
+        })
+    }, [])
     return (
-        <View className="bg-orange-500 flex-1 justify-center items-center space-y-8">
+        <View className="bg-orange-500 flex-1 justify-center items-center space-y-5">
             <StatusBar backgroundColor="rgba(249,115,22,1)" barStyle="light-content" />
 
 
             {/* welcome screen image with rings */}
-            <View className="bg-orange-300/20 p-12 rounded-full ">
-                <View className="bg-orange-400/100 p-10 rounded-full">
+            <Animated.View className="bg-orange-300/20 rounded-full" style={{ padding: ring1padding }}>
+                <Animated.View className="bg-orange-400/100 rounded-full" style={{ padding: ring2padding }}>
                     <Image source={require("../assets/welcome.jpg")}
-                        className="w-52 h-52 rounded-full opacity-100" />
-                </View>
-            </View>
+                        className="rounded-full opacity-100" style={{ width: wp(50), height: hp(30) }} />
+                </Animated.View>
+            </Animated.View>
 
             {/* title and punchline */}
             <View className="space-y-4 flex items-center">
-                <Text className="text-white font-extrabold tracking-widest text-5xl">
+                <Text className="text-white font-extrabold tracking-widest"
+                    style={{ fontSize: wp(12) }}
+                >
                     Foody
                 </Text>
-                <Text className="text-white font-semibold tracking-widest text-xl border border-white p-2 bg-orange-400 rounded-lg">
+                <Text className="text-white font-semibold tracking-widest border border-white bg-orange-400 rounded-lg"
+                    style={{ fontSize: wp(4.5), padding: wp(2) }}
+                >
                     THE TASTE OF INDIA
                 </Text>
             </View>
