@@ -28,7 +28,7 @@ export default function Welcome({ navigation }) {
             <Animated.View className="bg-orange-300/20 rounded-full" style={{ padding: ring1padding }}>
                 <Animated.View className="bg-orange-400/100 rounded-full" style={{ padding: ring2padding }}>
                     <Image source={require("../assets/welcome.jpg")}
-                        className="rounded-full opacity-100" style={{ width: wp(50), height: hp(30) }} />
+                        className="rounded-full opacity-100" style={{ width: wp(50), height: hp(25) }} />
                 </Animated.View>
             </Animated.View>
 

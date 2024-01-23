@@ -5,20 +5,35 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import { Category } from '../components';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Recipes from '../components/Recipes';
 
 export default function Home() {
 
     const [mealCategory, setMealCategory] = useState([]);
+    const [mealRecipe, setMealRecipe] = useState([])
 
     useEffect(() => {
         getCategory();
+        getRecipe();
     }, [])
 
     const getCategory = async () => {
         try {
             const response = await axios.get("https://themealdb.com/api/json/v1/1/categories.php")
             if (response && response.data) {
-                console.log("data", response.data)
+                setMealCategory(response.data.categories);
+            }
+
+        } catch (error) {
+            console.log("error", error.message)
+        }
+    }
+
+    const getRecipe = async (recipeCategory = "Starter") => {
+        try {
+            const response = await axios.get(`https://themealdb.com/api/json/v1/1/filter.php?c=${recipeCategory}`)
+            if (response && response.data) {
+                setMealRecipe(response.data.meals);
             }
 
         } catch (error) {
@@ -64,7 +79,12 @@ export default function Home() {
 
                 {/* categories */}
                 <View>
-                    <Category />
+                    {mealCategory.length > 0 && <Category categoriesData={mealCategory} />}
+                </View>
+
+                {/* recipes */}
+                <View>
+                    <Recipes recipeData={mealRecipe} categoriesData={mealCategory} />
                 </View>
 
             </ScrollView>
