@@ -16,7 +16,7 @@ export default function Welcome({ navigation }) {
             setTimeout(() => ring1padding.value = withSpring(ring1padding.value + wp(12)), 100);
             setTimeout(() => ring2padding.value = withSpring(ring2padding.value + wp(10)), 300);
 
-            setTimeout(() => navigation.navigate("Home"), 2500)
+            setTimeout(() => navigation.navigate("Home"), 2000)
         })
     }, [])
     return (
