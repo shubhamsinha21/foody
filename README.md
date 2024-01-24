@@ -5,7 +5,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 # Demo
 
-➡️ https://github.com/shubhamsinha21/musical-octo-spork/assets/84564814/4928071c-75c7-42f4-8f59-08843056610f
+➡️<video width="400" height="200" source="https://github.com/shubhamsinha21/musical-octo-spork/assets/84564814/4928071c-75c7-42f4-8f59-08843056610f"></video>
 
 # Getting Started
 
