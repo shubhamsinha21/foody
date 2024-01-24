@@ -7,10 +7,11 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Recipes from '../components/Recipes';
 
-export default function Home() {
+export default function Home({ navigation }) {
 
     const [mealCategory, setMealCategory] = useState([]);
     const [mealRecipe, setMealRecipe] = useState([])
+    const [activeCategory, setActiveCategory] = useState("Starter")
 
     useEffect(() => {
         getCategory();
@@ -41,6 +42,11 @@ export default function Home() {
         }
     }
 
+    const handleCategory = ({ category }) => {
+        getRecipe(category);
+        setActiveCategory(category);
+        setMealRecipe([])
+    }
     return (
         <View className="flex-1 bg-white px-4">
             <StatusBar backgroundColor="white" barStyle="dark-content" />
@@ -79,12 +85,12 @@ export default function Home() {
 
                 {/* categories */}
                 <View>
-                    {mealCategory.length > 0 && <Category categoriesData={mealCategory} setMealRecipe={setMealRecipe} getRecipe={getRecipe} />}
+                    {mealCategory.length > 0 && <Category categoriesData={mealCategory} activeCategory={activeCategory} handleCategory={handleCategory} />}
                 </View>
 
                 {/* recipes */}
                 <View>
-                    <Recipes recipeData={mealRecipe} categoriesData={mealCategory} />
+                    <Recipes recipeData={mealRecipe} categoriesData={mealCategory} navigation={navigation} />
                 </View>
 
             </ScrollView>

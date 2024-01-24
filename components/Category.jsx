@@ -1,23 +1,17 @@
 import { useState } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, Image } from 'react-native'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { categoriesData } from '../constants'
 import Animated, { FadeInDown, springify } from 'react-native-reanimated';
 
-export default function Category({ categoriesData, getRecipe, setMealRecipe }) {
+export default function Category({ categoriesData, handleCategory, activeCategory }) {
 
-    const [activeCategory, setActiveCategory] = useState("Starter")
-
-    const hanldeCategory = ({ category }) => {
-        getRecipe(category);
-        setActiveCategory(category)
-        setMealRecipe()
-    }
 
     return (
         <Animated.View entering={FadeInDown.duration(2000).springify()}>
             <ScrollView
                 horizontal
-                contentContainerStyle={{ paddingHorizontal: 15 }}
+                contentContainerStyle={{ paddingHorizontal: 10 }}
                 showsHorizontalScrollIndicator={false}
                 className="space-x-4">
 
@@ -27,11 +21,11 @@ export default function Category({ categoriesData, getRecipe, setMealRecipe }) {
                         <TouchableOpacity
                             key={index}
                             className="flex items-center space-y-2"
-                            onPress={() => hanldeCategory(category.strCategory)}
+                            onPress={() => handleCategory(category.strCategory)}
                         >
-                            <View className={`rounded-full p-1.5 ${category.strCategory === activeCategory ? "bg-orange-700" : "bg-gray-200"}`}>
+                            <View className={`rounded-full p-1.5 ${category.strCategory === activeCategory ? "bg-orange-300" : "bg-gray-100"}`}>
                                 <Image source={{ uri: category.strCategoryThumb }}
-                                    style={{ width: wp(15), height: hp(8) }}
+                                    style={{ width: wp(14), height: hp(7) }}
                                     className="rounded-full"
                                 />
                             </View>
