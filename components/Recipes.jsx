@@ -15,7 +15,7 @@ export default function Recipes({ recipeData, categoriesData, navigation }) {
                     <Loader />
                 ) :
                     <MasonryList
-                        data={recipeData?.length > 0 && recipeData}
+                        data={recipeData}
                         keyExtractor={(item) => item.idMeaL}
                         numColumns={2}
                         showsVerticalScrollIndicator={false}
