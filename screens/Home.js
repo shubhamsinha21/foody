@@ -29,9 +29,9 @@ export default function Home() {
         }
     }
 
-    const getRecipe = async (recipeCategory = "Starter") => {
+    const getRecipe = async (recipeCategory = "Seafood") => {
         try {
-            const response = await axios.get(`https://themealdb.com/api/json/v1/1/filter.php?c=${recipeCategory}`)
+            const response = await axios.get(`https://themealdb.com/api/json/v1/1/filter.php?c=${encodeURIComponent(recipeCategory)}`)
             if (response && response.data) {
                 setMealRecipe(response.data.meals);
             }
@@ -68,8 +68,8 @@ export default function Home() {
                 {/* Search bar */}
                 <View className="flex-row justify-between px-2 items-center mb-2 bg-neutral-200 rounded-full ">
                     <TextInput placeholder="Search any receipe"
-                        placeholderTextColor="black"
-                        style={{ fontSize: hp(2.5) }}
+                        placeholderTextColor="gray"
+                        style={{ fontSize: hp(2) }}
                         className="text-neutral-500" />
 
                     <View className="bg-white p-2 rounded-full">
@@ -79,7 +79,7 @@ export default function Home() {
 
                 {/* categories */}
                 <View>
-                    {mealCategory.length > 0 && <Category categoriesData={mealCategory} />}
+                    {mealCategory.length > 0 && <Category categoriesData={mealCategory} setMealRecipe={setMealRecipe} getRecipe={getRecipe} />}
                 </View>
 
                 {/* recipes */}

@@ -3,9 +3,15 @@ import { View, Text, TouchableOpacity, ScrollView, Image } from 'react-native'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Animated, { FadeInDown, springify } from 'react-native-reanimated';
 
-export default function Category({ categoriesData }) {
+export default function Category({ categoriesData, getRecipe, setMealRecipe }) {
 
     const [activeCategory, setActiveCategory] = useState("Starter")
+
+    const hanldeCategory = ({ category }) => {
+        getRecipe(category);
+        setActiveCategory(category)
+        setMealRecipe()
+    }
 
     return (
         <Animated.View entering={FadeInDown.duration(2000).springify()}>
@@ -21,7 +27,7 @@ export default function Category({ categoriesData }) {
                         <TouchableOpacity
                             key={index}
                             className="flex items-center space-y-2"
-                            onPress={() => setActiveCategory(category.strCategory)}
+                            onPress={() => hanldeCategory(category.strCategory)}
                         >
                             <View className={`rounded-full p-1.5 ${category.strCategory === activeCategory ? "bg-orange-700" : "bg-gray-200"}`}>
                                 <Image source={{ uri: category.strCategoryThumb }}
