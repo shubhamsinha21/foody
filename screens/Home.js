@@ -80,7 +80,7 @@ export default function Home({ navigation }) {
 
                         {/* user info and punchline */}
                         <View className="flex">
-                            <Text className="text-neutral-700 font-medium mb-1" style={{ fontSize: wp(3.5) }}>Hello, Shubham Sinha..</Text>
+                            <Text className="text-neutral-700 font-medium mb-1" style={{ fontSize: wp(3.5) }}>Hello, Shubham..</Text>
 
                             <View className="flex-row items-center space-x-2">
                                 <Text className="font-bold text-neutral-700 tracking-wide" style={{ fontSize: wp(7.5) }}>Make your own food,</Text>
