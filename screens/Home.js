@@ -2,10 +2,9 @@ import { View, Text, ScrollView, Image, StatusBar, TextInput } from 'react-nativ
 import { BellIcon, MagnifyingGlassIcon } from 'react-native-heroicons/outline'
 import { FaceSmileIcon } from 'react-native-heroicons/solid'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import { Category } from '../components';
+import { Category, Recipes } from '../components';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Recipes from '../components/Recipes';
 
 export default function Home({ navigation }) {
 

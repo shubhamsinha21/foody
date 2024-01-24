@@ -1,8 +1,7 @@
 import { View, Text } from 'react-native'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import Card from './Card';
+import { Card, Loader } from '../components'
 import MasonryList from '@react-native-seoul/masonry-list';
-import Loader from './Loader';
 
 export default function Recipes({ recipeData, categoriesData, navigation }) {
 

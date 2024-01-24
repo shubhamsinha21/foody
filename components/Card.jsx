@@ -1,7 +1,6 @@
 import { View, Text, Pressable, Image, ScrollView } from 'react-native'
 import Animated, { FadeInDown } from 'react-native-reanimated';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import { CachedImage } from '../helper';
 
 export default function Card({ item, id, navigation }) {
     let isEven = item.id % 2 === 0;
@@ -12,7 +11,7 @@ export default function Card({ item, id, navigation }) {
             <Pressable
                 style={{ width: "100%", paddingLeft: isEven ? 0 : 8, paddingRight: isEven ? 8 : 0 }}
                 className="flex justify-center space-y-1"
-                onPress={() => navigation.navigate("Recipe")}
+                onPress={() => navigation.navigate("Recipe", { ...item })}
             >
                 <Image source={{ uri: item.strMealThumb }}
                     style={{ width: "100%", height: isHeight ? hp(25) : hp(35) }}
