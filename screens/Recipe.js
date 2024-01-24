@@ -6,6 +6,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import axios from 'axios';
 import { Loader } from '../components';
 import YoutubeIframe from 'react-native-youtube-iframe';
+// import { WebView } from 'react-native-webview'
 
 export default function Recipe(props) {
 
@@ -30,7 +31,8 @@ export default function Recipe(props) {
             }
 
         } catch (error) {
-            console.log("error", error.message)
+            console.log("error", error.message);
+            setLoading(false);
         }
     }
 
@@ -45,14 +47,14 @@ export default function Recipe(props) {
         return indexes;
     }
 
-    const getYoutubeVideo = url => {
-        const regex = /[?&]v=([^&]+)/;
-        const match = url.match(regex);
-        if (match && match[1]) {
-            return match[1];
-        }
-        return null;
-    }
+    // const getYoutubeVideo = url => {
+    //     const regex = /[?&]v=([^&]+)/;
+    //     const match = url.match(regex);
+    //     if (match && match[1]) {
+    //         return match[1];
+    //     }
+    //     return null;
+    // }
 
     return (
         <ScrollView className="bg-white flex-1"
@@ -66,6 +68,7 @@ export default function Recipe(props) {
                 <Image source={{ uri: item.strMealThumb }}
                     style={{ width: wp(98), height: hp(50) }}
                     className="rounded-t-xl rounded-b-3xl m-1"
+
                 />
             </View>
 
@@ -212,17 +215,23 @@ export default function Recipe(props) {
 
 
                             {/* recipe video */}
+                            {
+                                ios ? (
+                                    <YouTubeIframe
+                                        webViewProps={{
+                                            overScrollMode: "never" // a fix for webview on android - which didn't work :(
+                                        }}
+                                        videoId={getYoutubeVideoId(meal.strYoutube)}
+                                        height={hp(30)}
+                                    />
+                                ) : (
+                                    <TouchableOpacity className="mb-5" onPress={() => handleOpenLink(meal.strYoutube)}>
+                                        <Text className="text-blue-600" style={{ fontSize: hp(2) }}>{meal.strYoutube}</Text>
+                                    </TouchableOpacity>
 
-                            {recipeDetail.strYoutube && (
-                                <View>
-                                    <Text className="font-bold text-neutral-700" style={{ fontSize: hp(2.5) }}> Recipe Video</Text>
-                                    <View>
-                                        <YoutubeIframe
-                                            videoId={getYoutubeVideo(recipeDetail.strYoutube)}
-                                            height={hp(30)} />
-                                    </View>
-                                </View>
-                            )}
+                                )
+                            }
+
 
 
 

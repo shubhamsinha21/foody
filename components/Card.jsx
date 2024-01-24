@@ -16,6 +16,7 @@ export default function Card({ item, id, navigation }) {
                 <Image source={{ uri: item.strMealThumb }}
                     style={{ width: "100%", height: isHeight ? hp(25) : hp(35) }}
                     className="bg-black/5 rounded-lg"
+
                 />
 
                 <Text className="text-neutral-700 font-medium mb-1">{item.strMeal.length > 10 ? item.strMeal.slice(0, 10) + "..." : item.strMeal}</Text>
