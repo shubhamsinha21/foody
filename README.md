@@ -1,5 +1,12 @@
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
+# Descrciption
+➡️ Developed a Fully Responsive and Animated Food Recipe 🧾 App which shows various meals 🧇 and recipe of the food items.
+
+# Demo
+
+➡️ https://github.com/shubhamsinha21/musical-octo-spork/assets/84564814/4928071c-75c7-42f4-8f59-08843056610f
+
 # Getting Started
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
@@ -46,14 +53,38 @@ If everything is set up _correctly_, you should see your new app running in your
 
 This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
 
-## Step 3: Modifying your App
+## Step 3: Modifyied App
 
-Now that you have successfully run the app, let's modify it.
+**Features**
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+➡️ To search among meals of various category. 
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+➡️ To search a particular food item via search bar
+
+➡️ to navigate to recipe details (ingredients, instructions, reference YouTube video 
+
+**𝐋𝐢𝐛𝐫𝐚𝐫𝐢𝐞𝐬 & 𝐓𝐞𝐜𝐡 𝐒𝐭𝐚𝐜𝐤** - 
+
+➡️ React Native, React Js and JavaScript
+
+➡️ React Navigation (for navigation between screens) 
+
+➡️ Tailwind Css & Nativewind (for styling) 
+
+➡️ Axios to fetch data 
+
+➡️ react-native-heroicons & react-native-svg (for icons) 
+
+➡️ react-native-responsive-screen ( for responsiveness in various mobile screens) 
+
+➡️ react-native-webview and youtube-iframe (for displaying YouTube videos) 
+
+➡️ React native Reanimated 3.0 (for animation) 
+
+**𝐓𝐨𝐨𝐥𝐬 & 𝐄𝐝𝐢𝐭𝐨𝐫** -
+
+➡️ Vs Code, Android Studio (Emulator)
+
 
 ## Congratulations! :tada:
 
