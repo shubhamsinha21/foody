@@ -5,7 +5,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 # Demo
 
-➡️<video width="400" height="200" source="https://github.com/shubhamsinha21/musical-octo-spork/assets/84564814/4928071c-75c7-42f4-8f59-08843056610f"></video>
+➡️ https://github.com/shubhamsinha21/musical-octo-spork/assets/84564814/01ab972d-7623-43fe-a4ad-bb1b45a5c777.mp4
 
 # Getting Started
 
@@ -84,11 +84,6 @@ This is one way to run your app — you can also run it directly from within And
 **𝐓𝐨𝐨𝐥𝐬 & 𝐄𝐝𝐢𝐭𝐨𝐫** -
 
 ➡️ Vs Code, Android Studio (Emulator)
-
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
 
 ### Now what?
 
